@@ -1,0 +1,41 @@
+.todo-app {
+  width: 500px;
+  height: auto;
+  margin: 20px auto;
+  /* background-color: gray; */
+  padding: 20px;
+  font-size: 1.5em;
+}
+
+.todo-list h2, .todo-new h2{
+  border-bottom:2px solid #000000;
+}
+
+.todo-list p {
+  border-bottom:1px solid #cccccc;
+  padding: 0 0 15px 15px;
+  line-height: 1.5;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.todo-new input, .todo-filter input {
+  outline: none;
+  padding: 15px;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  line-height:1.5;
+  font-size: 1em;
+}
+
+.todo-new button, .todo-filter button {
+ padding: 15px 20px;
+ border: 2px solid #008CBA;
+ background: transparent;
+ border-radius: 5px;
+ cursor: pointer;
+ margin-left: auto;
+ font-size: 1em;
+ margin-left: 20px;
+}
+
