@@ -2,19 +2,25 @@ import React, { Component } from 'react';
 
 class TodoItem extends Component {
   render() {
-    const { todo, onDone } = this.props;
+    const { todo, onDone, onDelete } = this.props;
     const { id, title, isCompleted } = todo;
     if (isCompleted) {
-      return <p style={{
-        textDecoration: "line-through",
-        color: "#444444",
-      }} >{title}</p>
+      return (
+        <div className="task">
+          <p style={{
+            textDecoration: "line-through",
+            color: "#444444",
+          }} >{title}
+          </p>
+          <button className='hover' onClick={() => { onDelete(id) }}>delete</button>
+        </div>
+      )
     }
 
     return (
-      <div>
+      <div className="task">
         <p onClick={() => onDone(id)}>{title}</p>
-        <button onClick={() => { }}>delete</button>
+        <button className='hover' onClick={() => { onDelete(id) }}>delete</button>
       </div>
     )
   }

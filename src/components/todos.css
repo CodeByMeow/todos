@@ -28,7 +28,7 @@
   font-size: 1em;
 }
 
-.todo-new button, .todo-filter button {
+.todo-new button, .todo-filter button, .task button {
  padding: 15px 20px;
  border: 2px solid #008CBA;
  background: transparent;
@@ -38,4 +38,15 @@
  font-size: 1em;
  margin-left: 20px;
 }
+.task button {
+ border: 2px solid #FF0000;
+}
+.hover:hover {
+  color: #ffffff;
+  background-color: #FF0000;
+}
 
+.task p {
+  display: inline-block;
+  width: 70%;
+}

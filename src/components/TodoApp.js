@@ -44,12 +44,20 @@ class TodoApp extends Component {
 
   onClearClick = () => this.onFilter("");
 
+  onDelete = (id) => {
+    if (!this.state.todos.find(task => task.id === id)) return;
+    this.setState({
+      todos: [...this.state.todos].filter(task => task.id !== id)
+    })
+
+  }
+
   render() {
     const { todos, query } = this.state;
     return (
       <div className='todo-app'>
         <FilterTodo onFilter={this.onFilter} onClearClick={this.onClearClick} />
-        <TodoList todos={todos} query={query} onDone={this.onDone} />
+        <TodoList todos={todos} query={query} onDone={this.onDone} onDelete={this.onDelete} />
         <AddNewTodo onAddNew={this.onAddNew} />
       </div>
     );
