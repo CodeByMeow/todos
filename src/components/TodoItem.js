@@ -11,7 +11,12 @@ class TodoItem extends Component {
       }} >{title}</p>
     }
 
-    return <p onClick={() => onDone(id)}>{title}</p>
+    return (
+      <div>
+        <p onClick={() => onDone(id)}>{title}</p>
+        <button onClick={() => { }}>delete</button>
+      </div>
+    )
   }
 }
 

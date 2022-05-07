@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './todos.css';
 import TodoList from './TodoList';
 import AddNewTodo from './AddNewTodo';
-import Filter from './FilterTodo';
 import FilterTodo from './FilterTodo';
 
 class TodoApp extends Component {
@@ -13,7 +12,8 @@ class TodoApp extends Component {
       { id: 3, title: "Học cách thổi nến", isCompleted: false },
       { id: 4, title: "Dắt gấu đi dạo", isCompleted: false },
       { id: 5, title: "Trade coin", isCompleted: false },
-    ]
+    ],
+    query: "",
   }
 
   onAddNew = (title) => {
@@ -36,28 +36,20 @@ class TodoApp extends Component {
     })
   }
 
-  onFilter = (keyword) => {
-
-    const { todos } = this.state;
-    const todos_temp = [...todos];
-    const filters = todos_temp.filter(task => task.title.includes(keyword));
-    if (filters.length > 0) {
-      return this.setState({
-        todos: filters,
-      })
-    }
-
+  onFilter = (query) => {
     this.setState({
-      todos: todos_temp,
+      query: query,
     })
-
   }
+
+  onClearClick = () => this.onFilter("");
+
   render() {
-    const { todos } = this.state;
+    const { todos, query } = this.state;
     return (
       <div className='todo-app'>
-        <FilterTodo onFilter={this.onFilter} />
-        <TodoList todos={todos} onDone={this.onDone} />
+        <FilterTodo onFilter={this.onFilter} onClearClick={this.onClearClick} />
+        <TodoList todos={todos} query={query} onDone={this.onDone} />
         <AddNewTodo onAddNew={this.onAddNew} />
       </div>
     );

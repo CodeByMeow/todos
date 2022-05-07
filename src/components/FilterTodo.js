@@ -5,13 +5,18 @@ class FilterTodo extends Component {
     super();
     this.filter = React.createRef();
   }
+
+  onClear = () => this.filter.current.value = "";
   render() {
-    const { onFilter } = this.props;
+    const { onFilter, onClearClick } = this.props;
     return (
       <div className='todo-filter'>
         <h3>Filter task(by name)</h3>
         <input type="search" ref={this.filter} onChange={(e) => onFilter(e.target.value)} />
-        <button>Clear</button>
+        <button onClick={() => {
+          onClearClick();
+          this.onClear();
+        }}>Clear</button>
       </div>
     );
   }

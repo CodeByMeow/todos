@@ -5,6 +5,9 @@ class AddNewTodo extends Component {
     super();
     this.inputRef = React.createRef();
   }
+
+  onAdded = () => this.inputRef.current.value = "";
+
   render() {
     const { onAddNew } = this.props;
     return (
@@ -13,7 +16,7 @@ class AddNewTodo extends Component {
         <input type="text" placeholder='New Item Title' ref={this.inputRef} />
         <button onClick={() => {
           onAddNew(this.inputRef.current.value);
-          this.inputRef.current.value = "";
+          this.onAdded();
         }}>Add</button>
       </div>
     );
