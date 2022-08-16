@@ -1,3 +1,6 @@
+body {
+  font-size: 62.5%;
+}
 .todo-app {
   width: 500px;
   height: auto;
@@ -6,47 +9,73 @@
   padding: 20px;
   font-size: 1.5em;
 }
-
-.todo-list h2, .todo-new h2{
-  border-bottom:2px solid #000000;
+.todo-filter,
+.todo-new {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
-
+.todo-filter .input,
+.todo-new .input {
+  width: 100%;
+}
+.todo-filter input,
+.todo-new input {
+  width: 70%;
+}
+.todo-filter button,
+.todo-new button {
+  flex-shrink: 0;
+}
+.todo-list h2,
+.todo-new h2 {
+  border-bottom: 2px solid #000000;
+}
 .todo-list p {
-  border-bottom:1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   padding: 0 0 15px 15px;
   line-height: 1.5;
   cursor: pointer;
   text-transform: capitalize;
 }
-
-.todo-new input, .todo-filter input {
+.todo-new input,
+.todo-filter input {
   outline: none;
   padding: 15px;
   border: none;
   border-bottom: 1px solid #cccccc;
-  line-height:1.5;
+  line-height: 1.5;
   font-size: 1em;
 }
-
-.todo-new button, .todo-filter button, .task button {
- padding: 15px 20px;
- border: 2px solid #008CBA;
- background: transparent;
- border-radius: 5px;
- cursor: pointer;
- margin-left: auto;
- font-size: 1em;
- margin-left: 20px;
+.todo-new button,
+.todo-filter button,
+.task button {
+  padding: 15px 20px;
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  font-size: 1em;
+  margin-left: 20px;
+  border: none;
+}
+.todo-new button,
+.todo-filter button {
+  border: 2px solid #008cba;
+}
+.todo-new button:hover,
+.todo-filter button:hover {
+  border: none;
+  background-color: #008cba;
+  color: #fff;
+}
+.task {
+  display: flex;
+  align-items: center;
+}
+.task p {
+  flex: 1;
 }
 .task button {
- border: 2px solid #FF0000;
-}
-.hover:hover {
-  color: #ffffff;
-  background-color: #FF0000;
-}
-
-.task p {
-  display: inline-block;
-  width: 70%;
+  flex-shrink: 0;
 }
