@@ -1,11 +1,11 @@
 import useTodo from "../hooks/useTodo";
 import TodoItem from "./TodoItem";
-const TodoList = () => {
+const TodoList = ({ query }) => {
   const [state] = useTodo();
-  const { todos, query } = state;
+  const { todos } = state;
 
   const hasKeyWord = (needed, keyword) => {
-    return needed.toLowerCase().includes(keyword);
+    return needed.toLowerCase().includes(keyword.toLowerCase());
   };
 
   const listItem =
